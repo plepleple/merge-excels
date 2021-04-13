@@ -10,12 +10,9 @@ def main():
     output_file_name = 'merged_' + str(now.strftime('%Y-%m-%d_%H-%M-%S')) + '.xlsx'
     
     all_data = []
-    total_rows = 0
 
     for file in glob.glob('./in/*.xlsx'):
         df = pd.read_excel(file, header=None)
-        rows = len(df.index)
-        total_rows = total_rows + rows
         print(f'File: {file} dimensions: {df.shape[0]} rows, {df.shape[1]} columns')
         all_data.append(df)
 
